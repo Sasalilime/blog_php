@@ -2,8 +2,8 @@
 
 :root {
   --font-family: font-family: 'Nunito', sans-serif;
-  --primary: #e74c3c;
-  --dark: #c0392b;
+  --primary: #3498db;
+  --dark: #2980b9;
   --background-light: #ecf0f1;
   --text-color: #444;
   --text-color-light: #fff;
@@ -120,52 +120,7 @@ header {
   align-items: center;
 }
 
-.todo-container {
-  padding: 1.5rem;
-  background-color:white;
-  border: var(--border);
-  border-radius: 10px;
-  min-width: 60rem;
-  min-height: 40rem;
-  box-shadow: var(--box-shadow);
 
-}
-
-.todo-container h1 {
-  text-align: center;
-}
-
-.todo-form {
-display: flex;
-flex-flow: row nowrap;
-align-items: center;
-}
-
-.todo-form input {
-  flex: 1;
-  margin-right: 0.5rem;
-  border: var(--border);
-  border-radius: 6px;
-  padding: 1rem 1.5rem;
-}
-
-.todo-items {
-display: flex;
-flex-flow: row;
-align-items: center;
-margin-bottom: 0.5rem;
-padding: 0.3rem 1.5rem;
-}
-
-.todo-items:nth-child(odd) {
-  background-color:var(--background-light);
-}
-
-.todo-name {
-  border-radius: 0.6rem;
-  flex: 1;
-  margin-right: 0.5rem;
-}
 
 /*footer*/
 
