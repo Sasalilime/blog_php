@@ -62,6 +62,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'category' => $category,
             'content' => $content,
         ]];
+
+        print_r($articles);
         file_put_contents($filename, json_encode($articles));
         header('Location: /');
     }
