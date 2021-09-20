@@ -100,7 +100,7 @@ header {
   background-color: var(--primary);
   padding: 1.5rem;
   box-shadow: var(--box-shadow);
-  text-color: var(--text-color-light);
+  color: var(--text-color-light);
   display: flex;
   flex-direction: row;
   justify-content: space-between;
