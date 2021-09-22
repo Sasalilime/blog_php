@@ -2,6 +2,10 @@
 $filename = __DIR__ . '/data/articles.json';
 $articles = [];
 $categories = [];
+$selectedCat = '';
+
+$_GET = filter_input_array(INPUT_GET, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+$selectedCat = $GET['cat'] ?? '';
 
 if (file_exists($filename)) {
     $articles = json_decode(file_get_contents($filename), true) ?? [];
@@ -41,25 +45,13 @@ if (file_exists($filename)) {
         <?php require_once 'includes/header.php' ?>
         <div class="content">
             <div class="newsfeed-container">
-
                 <ul class="category-container">
-                    <li>Tous les articles <span class="small">( <?= count($articles)  ?> )</span></li>
-
-
+                    <li><a href="/">Tous les articles <span class="small">(<?= count($articles) ?>)</span></a></li>
                     <?php foreach ($categories as $catName => $catNum) :  ?>
-
-                        <li><?= $catName ?><span class="small">( <?= $catNum ?> )</span></li>
-
-
+                        <li><a href="/?cat=<?= $catName ?>"> <?= $catName ?> <span class="small">(<?= $catNum ?>)</span></a></li>
                     <?php endforeach; ?>
-
-
-
-
                 </ul>
-
-
-                <div class="newsfeed-container">
+                <div class="newsfeed-content">
                     <?php foreach ($categories as $cat => $num) :     ?>
                         <h2> <?= $cat ?> </h2>
                         <div class="articles-container">
@@ -75,9 +67,6 @@ if (file_exists($filename)) {
                         </div>
                     <?php endforeach ?>
                 </div>
-
-
-
             </div>
 
         </div>
