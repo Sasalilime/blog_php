@@ -4,7 +4,7 @@
 }
 
 .category-container {
-  flex: 200px;
+  flex: 20%;
 }
 
 .category-container li {
@@ -17,7 +17,13 @@
   cursor: pointer;
 }
 
+.cat-active {
+  color: var(--primary);
+  font-weight: bold;
+}
+
 .articles-container {
+  min-width: 100rem;
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
