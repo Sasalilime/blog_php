@@ -1,8 +1,9 @@
 .article-cover-img {
   height: 50rem;
-  width: 100%;
+  max-width: 80%;
   background-size: cover;
   border-radius: 3px;
+  margin: auto;
 }
 
 .article-title {

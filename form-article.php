@@ -8,8 +8,7 @@ $errors = [
     'title' => '',
     'image' => '',
     'category' => '',
-    'content' => '',
-    'id' => time()
+    'content' => ''
 ];
 $category = '';
 
