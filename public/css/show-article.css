@@ -28,3 +28,10 @@
   margin-bottom: 1rem;
   display: block;
 }
+
+.action {
+  margin-top: 1rem;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
