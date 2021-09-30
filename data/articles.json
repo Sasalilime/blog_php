@@ -1,1 +1,37 @@
-[{"title":"Le foot","image":"https:\/\/upload.wikimedia.org\/wikipedia\/commons\/thumb\/b\/b8\/France_WC2018_final.jpg\/220px-France_WC2018_final.jpg","category":"technologie","content":"Une \u00e9quipe de football est une \u00e9quipe sportive (en) constitu\u00e9e de footballeurs. R\u00e9gie par la loi 3 du football, elle est compos\u00e9e lors d'un match (no) officiel de onze joueurs maximum sur le terrain. Au niveau des postes, elle est form\u00e9e d'un gardien de but, de trois \u00e0 cinq d\u00e9fenseurs, de deux \u00e0 cinq milieux de terrain et de trois \u00e0 quatre attaquants. L'entra\u00eeneur peut faire appel \u00e0 des rempla\u00e7ants, qui viennent en plus des onze joueurs et qui n'entrent en jeu que dans certaines circonstances1,2.","id":"1"},{"title":"Le foot","image":"https:\/\/upload.wikimedia.org\/wikipedia\/commons\/thumb\/b\/b8\/France_WC2018_final.jpg\/220px-France_WC2018_final.jpg","category":"nature","content":"Une \u00e9quipe de football est une \u00e9quipe sportive (en) constitu\u00e9e de footballeurs. R\u00e9gie par la loi 3 du football, elle est compos\u00e9e lors d'un match (no) officiel de onze joueurs maximum sur le terrain. Au niveau des postes, elle est form\u00e9e d'un gardien de but, de trois \u00e0 cinq d\u00e9fenseurs, de deux \u00e0 cinq milieux de terrain et de trois \u00e0 quatre attaquants. L'entra\u00eeneur peut faire appel \u00e0 des rempla\u00e7ants, qui viennent en plus des onze joueurs et qui n'entrent en jeu que dans certaines circonstances1,2.","id":"3"},{"title":"Le foot","image":"https:\/\/upload.wikimedia.org\/wikipedia\/commons\/thumb\/b\/b8\/France_WC2018_final.jpg\/220px-France_WC2018_final.jpg","category":"politique","content":"Une \u00e9quipe de football est une \u00e9quipe sportive (en) constitu\u00e9e de footballeurs. R\u00e9gie par la loi 3 du football, elle est compos\u00e9e lors d'un match (no) officiel de onze joueurs maximum sur le terrain. Au niveau des postes, elle est form\u00e9e d'un gardien de but, de trois \u00e0 cinq d\u00e9fenseurs, de deux \u00e0 cinq milieux de terrain et de trois \u00e0 quatre attaquants. L'entra\u00eeneur peut faire appel \u00e0 des rempla\u00e7ants, qui viennent en plus des onze joueurs et qui n'entrent en jeu que dans certaines circonstances1,2.","id":"4"},{"title":"Flex-grow","image":"https:\/\/css-tricks.com\/wp-content\/uploads\/2018\/10\/flex-grow.svg","category":"technologie","content":"This defines the ability for a flex item to grow if necessary. It accepts a unitless value that serves as a proportion. It dictates what amount of the available space inside the flex container the item should take up.  If all items have flex-grow set to 1, the remaining space in the container will be distributed equally to all children. If one of the children has a value of 2, the remaining space would take up twice as much space as the others (or it will try to, at least).","id":1632491133},{"title":"Flex-direction","image":"https:\/\/css-tricks.com\/wp-content\/uploads\/2018\/10\/flex-direction.svg","category":"technologie","content":"\r\nThis establishes the main-axis, thus defining the direction flex items are placed in the flex container. Flexbox is (aside from optional wrapping) a single-direction layout concept. Think of flex items as primarily laying out either in horizontal rows or vertical columns.\r\n\r\n.container {\r\n  flex-direction: row | row-reverse | column | column-reverse;\r\n}\r\nrow (default): left to right in ltr; right to left in rtl\r\nrow-reverse: right to left in ltr; left to right in rtl\r\ncolumn: same as row but top to bottom\r\ncolumn-reverse: same as row-reverse but bottom to top","id":1632491328}]
+[
+  {
+    "title": "Le foot",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/France_WC2018_final.jpg/220px-France_WC2018_final.jpg",
+    "category": "technologie",
+    "content": "Une \u00e9quipe de football est une \u00e9quipe sportive (en) constitu\u00e9e de footballeurs. R\u00e9gie par la loi 3 du football, elle est compos\u00e9e lors d'un match (no) officiel de onze joueurs maximum sur le terrain. Au niveau des postes, elle est form\u00e9e d'un gardien de but, de trois \u00e0 cinq d\u00e9fenseurs, de deux \u00e0 cinq milieux de terrain et de trois \u00e0 quatre attaquants. L'entra\u00eeneur peut faire appel \u00e0 des rempla\u00e7ants, qui viennent en plus des onze joueurs et qui n'entrent en jeu que dans certaines circonstances1,2.",
+    "id": "1"
+  },
+  {
+    "title": "Le foot",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/France_WC2018_final.jpg/220px-France_WC2018_final.jpg",
+    "category": "nature",
+    "content": "Une \u00e9quipe de football est une \u00e9quipe sportive (en) constitu\u00e9e de footballeurs. R\u00e9gie par la loi 3 du football, elle est compos\u00e9e lors d'un match (no) officiel de onze joueurs maximum sur le terrain. Au niveau des postes, elle est form\u00e9e d'un gardien de but, de trois \u00e0 cinq d\u00e9fenseurs, de deux \u00e0 cinq milieux de terrain et de trois \u00e0 quatre attaquants. L'entra\u00eeneur peut faire appel \u00e0 des rempla\u00e7ants, qui viennent en plus des onze joueurs et qui n'entrent en jeu que dans certaines circonstances1,2.",
+    "id": "3"
+  },
+  {
+    "title": "Le foot",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/France_WC2018_final.jpg/220px-France_WC2018_final.jpg",
+    "category": "politique",
+    "content": "Une \u00e9quipe de football est une \u00e9quipe sportive (en) constitu\u00e9e de footballeurs. R\u00e9gie par la loi 3 du football, elle est compos\u00e9e lors d'un match (no) officiel de onze joueurs maximum sur le terrain. Au niveau des postes, elle est form\u00e9e d'un gardien de but, de trois \u00e0 cinq d\u00e9fenseurs, de deux \u00e0 cinq milieux de terrain et de trois \u00e0 quatre attaquants. L'entra\u00eeneur peut faire appel \u00e0 des rempla\u00e7ants, qui viennent en plus des onze joueurs et qui n'entrent en jeu que dans certaines circonstances1,2.",
+    "id": "4"
+  },
+  {
+    "title": "Flex-grow",
+    "image": "https://css-tricks.com/wp-content/uploads/2018/10/flex-grow.svg",
+    "category": "technologie",
+    "content": "This defines the ability for a flex item to grow if necessary. It accepts a unitless value that serves as a proportion. It dictates what amount of the available space inside the flex container the item should take up.  If all items have flex-grow set to 1, the remaining space in the container will be distributed equally to all children. If one of the children has a value of 2, the remaining space would take up twice as much space as the others (or it will try to, at least).",
+    "id": 1632491133
+  },
+  {
+    "title": "Flex-direction",
+    "image": "https://css-tricks.com/wp-content/uploads/2018/10/flex-direction.svg",
+    "category": "technologie",
+    "content": "\r\nThis establishes the main-axis, thus defining the direction flex items are placed in the flex container. Flexbox is (aside from optional wrapping) a single-direction layout concept. Think of flex items as primarily laying out either in horizontal rows or vertical columns.\r\n\r\n.container {\r\n  flex-direction: row | row-reverse | column | column-reverse;\r\n}\r\nrow (default): left to right in ltr; right to left in rtl\r\nrow-reverse: right to left in ltr; left to right in rtl\r\ncolumn: same as row but top to bottom\r\ncolumn-reverse: same as row-reverse but bottom to top",
+    "id": 1632491328
+  }
+]
