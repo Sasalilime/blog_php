@@ -1,14 +1,10 @@
 <?php
 
-$pdo = require_once './database.php';
-$statement = $pdo->prepare("DELETE  FROM article where id=:id");
-
-
+$articleDB = require_once __DIR__ .  '/database/models/ArticleDB.php';
 $_GET = filter_input_array(INPUT_GET, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 $id = $_GET['id'] ?? '';
 
 if ($id) {
-    $statement->bindValue(':id', $id);
-    $statement->execute();
+    $articleDB->deleteOne($id);
 }
 header('location: /');
