@@ -1,5 +1,5 @@
 <?php
-$articleDB = require_once __DIR__ . '/database/models/ArticleDB.php';
+$pdo = require_once './database/database.php';
 
 const ERROR_REQUIRED = 'Veuillez renseigner ce champ';
 const ERROR_TOO_SHORT = 'Ce champ est trop court';
@@ -17,23 +17,16 @@ $errors = [
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       $input = filter_input_array(INPUT_POST, [
-            'firstname' => FILTER_SANITIZE_FULL_SPECIAL_CHARS,
-            'lastname' => FILTER_SANITIZE_FULL_SPECIAL_CHARS,
+            'firstname' => FILTER_SANITIZE_SPECIAL_CHARS,
+            'lastname' => FILTER_SANITIZE_SPECIAL_CHARS,
             'email' => FILTER_SANITIZE_EMAIL
       ]);
 
       $firstname = $input['firstname'] ?? '';
       $lastname = $input['lastname'] ?? '';
       $email = $input['email'] ??  '';
-      $password = $input['password'] ??  '';
-      $confirmpassword = $input['confirmpassword'] ?? '';
-
-
-
-      if (empty(array_filter($errors, fn ($e) => $e !== ''))) {
-
-            //   header('Location: /');
-      }
+      $password = $_POST['password'] ??  '';
+      $confirmpassword = $_POST['confirmpassword'] ?? '';
 
 
       if (!$firstname) {
@@ -65,6 +58,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $errors['confirmpassword'] = ERROR_REQUIRED;
       } elseif ($confirmpassword !== $password) {
             $errors['confirmpassword'] = ERROR_PASSWORD_MISMATCH;
+      }
+
+      if (empty(array_filter($errors, fn ($e) => $e !== ''))) {
+            $statement = $pdo->prepare('INSERT INTO user VALUES (
+            DEFAULT,
+            :firstname,
+            :lastname,
+            :email,
+            :password
+            )');
+            $hashedPassword = password_hash(
+                  $password,
+                  PASSWORD_ARGON2ID
+            );
+            $statement->bindValue(':firstname', $firstname);
+            $statement->bindValue(':lastname', $lastname);
+            $statement->bindValue(':email', $email);
+            $statement->bindValue(':password', $hashedPassword);
+            $statement->execute();
+            header('Location: /');
       }
 }
 
@@ -104,21 +117,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                               </div>
                               <div class="form-control">
                                     <label for="email">Email</label>
-                                    <input type="email" name="email" id="email"><?= $email ?? '' ?></textarea>
+                                    <input type="email" name="email" id="email" value="<?= $email ?? '' ?> ">
                                     <?php if ($errors['email']) : ?>
                                           <p class="text-danger"><?= $errors['email'] ?></p>
                                     <?php endif; ?>
                               </div>
                               <div class="form-control">
                                     <label for="password">Mot de passe</label>
-                                    <input type="password" name="password" id="password"><?= $email ?? '' ?></textarea>
+                                    <input type="password" name="password" id="password">
                                     <?php if ($errors['password']) : ?>
                                           <p class="text-danger"><?= $errors['password'] ?></p>
                                     <?php endif; ?>
                               </div>
                               <div class="form-control">
                                     <label for="confirmpassword">Confirmation du mot de passe</label>
-                                    <input type="confirmpassword" name="confirmpassword" id="confirmpassword"><?= $email ?? '' ?></textarea>
+                                    <input type="password" name="confirmpassword" id="confirmpassword">
                                     <?php if ($errors['confirmpassword']) : ?>
                                           <p class="text-danger"><?= $errors['confirmpassword'] ?></p>
                                     <?php endif; ?>
