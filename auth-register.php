@@ -117,7 +117,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                               </div>
                               <div class="form-control">
                                     <label for="email">Email</label>
-                                    <input type="email" name="email" id="email" value="<?= $email ?? '' ?> ">
+                                    <input type="text" name="email" id="email" value="<?= $email ?? '' ?> ">
                                     <?php if ($errors['email']) : ?>
                                           <p class="text-danger"><?= $errors['email'] ?></p>
                                     <?php endif; ?>
