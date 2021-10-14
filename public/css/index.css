@@ -46,6 +46,20 @@
   transform: scale(1.1);
 }
 
+.article-author {
+  display: flex;
+  flex-flow: row;
+  justify-content: flex-end;
+  padding-right: 2rem;
+  padding-bottom: 0.5rem;
+}
+
+.article-author p {
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-style: italic;
+}
+
 .newsfeed-content h2 {
   font-size: 1.9rem;
   padding: 0 1.5rem;

@@ -13,6 +13,14 @@
   font-weight: 400;
 }
 
+.article-author {
+  text-align: right;
+  padding-bottom: 0.5rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-style: italic;
+}
+
 .article-content {
   white-space: pre-wrap;
 }

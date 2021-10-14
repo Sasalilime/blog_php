@@ -11,20 +11,26 @@ class ArticleDB
 
       function __construct(private PDO $pdo)
       {
-            $this->statetementReadOne = $pdo->prepare('SELECT * FROM article WHERE id=:id');
+            $this->statetementReadOne = $pdo->prepare('SELECT article.*, user.firstname, user.lastname FROM article LEFT JOIN user ON article.author = user.id WHERE article.id=:id');
+            //user.firstname, user.lastname on peut aussi mettre firstname et lastname sans "user."
 
-            $this->statementReadAll = $pdo->prepare("SELECT * FROM article");
+
+            $this->statementReadAll = $pdo->prepare("SELECT article.*, user.firstname, user.lastname FROM article LEFT JOIN user ON article.author = user.id");
+            // LEFT permet de recupérérer tous les articles même si il n'y a pas d'auteur. Si on ne le met pas ça ne récupérera que les articles avec un auteur.
+
 
             $this->statetementCreateOne = $pdo->prepare('INSERT INTO article (
             title, 
             category,
             content,
-            image
+            image,
+            author
             ) VALUES (
             :title,
             :category, 
             :content, 
-            :image)
+            :image,
+            :author)
             ');
 
             $this->statetementUpdateOne = $pdo->prepare('
@@ -35,7 +41,8 @@ class ArticleDB
              title=:title, 
              category=:category, 
              content=:content, 
-             image=:image
+             image=:image,
+             author=:author
             
     WHERE id=:id
             ');
@@ -71,6 +78,7 @@ class ArticleDB
             $this->statetementCreateOne->bindValue(':image', $article['image']);
             $this->statetementCreateOne->bindValue(':category', $article['category']);
             $this->statetementCreateOne->bindValue(':content', $article['content']);
+            $this->statetementCreateOne->bindValue(':author', $article['author']);
             $this->statetementCreateOne->execute();
             $this->fetchOne($this->pdo->lastInsertId());
       }
@@ -83,6 +91,7 @@ class ArticleDB
             $this->statetementUpdateOne->bindValue(':category', $article['category']);
             $this->statetementUpdateOne->bindValue(':content', $article['content']);
             $this->statetementUpdateOne->bindValue(':id', $article['id']);
+            $this->statetementUpdateOne->bindValue(':author', $article['author']);
             $this->statetementUpdateOne->execute();
             return $article;
       }
