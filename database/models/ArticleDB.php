@@ -7,6 +7,7 @@ class ArticleDB
       private PDOStatement $statementCreateOne;
       private PDOStatement $statementReadAll;
       private PDOStatement $statementDeleteOne;
+      private PDOStatement $statementReadUserAll;
 
 
       function __construct(private PDO $pdo)
@@ -49,30 +50,33 @@ class ArticleDB
 
 
             $this->statetementDeleteOne = $pdo->prepare("DELETE  FROM article where id=:id");
+
+
+            $this->statementReadUserAll = $pdo->prepare('SELECT * FROM article WHERE author=:authorId');
       }
 
 
-      public function fetchAll()
+      public function fetchAll(): array
       {
             $this->statementReadAll->execute();
             return $this->statementReadAll->fetchAll();
       }
 
-      public function fetchOne(string $id)
+      public function fetchOne(string $id): array
       {
             $this->statetementReadOne->bindValue(':id', $id);
             $this->statetementReadOne->execute();
             return $this->statetementReadOne->fetch();
       }
 
-      public function deleteOne(string $id)
+      public function deleteOne(string $id): string
       {
             $this->statetementDeleteOne->bindValue(':id', $id);
             $this->statetementDeleteOne->execute();
             return $id;
       }
 
-      public function CreateOne($article)
+      public function CreateOne($article): array
       {
             $this->statetementCreateOne->bindValue(':title', $article['title']);
             $this->statetementCreateOne->bindValue(':image', $article['image']);
@@ -84,7 +88,7 @@ class ArticleDB
       }
 
 
-      public function UpdateOne($article)
+      public function UpdateOne($article): array
       {
             $this->statetementUpdateOne->bindValue(':title', $article['title']);
             $this->statetementUpdateOne->bindValue(':image', $article['image']);
@@ -94,6 +98,13 @@ class ArticleDB
             $this->statetementUpdateOne->bindValue(':author', $article['author']);
             $this->statetementUpdateOne->execute();
             return $article;
+      }
+
+      public function fetchUserArticle(string $authorId): array
+      {
+            $this->statementReadUserAll->bindValue(':authorId', $authorId);
+            $this->statementReadUserAll->execute();
+            return $this->statementReadUserAll->fetchAll();
       }
 }
 
