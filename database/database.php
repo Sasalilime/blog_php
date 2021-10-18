@@ -2,7 +2,7 @@
 
 $dns = 'mysql:host=localhost;dbname=blog';
 $user = 'salim';
-$pwd = 'Suits123!!!';
+$pwd = 'Suits123!';
 
 // $user = getenv('DB_USER');
 // $pwd = getenv('DB_PWD');

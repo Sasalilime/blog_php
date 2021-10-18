@@ -6,6 +6,9 @@ class AuthDB
       private PDOStatement $statementRegister;
       private PDOStatement $statementReadSession;
       private PDOStatement $statementReadUser;
+      private PDOStatement $statementReadUserFromEmail;
+      private PDOStatement $statementCreateSession;
+      private PDOStatement $statementDeleteSession;
 
 
 
@@ -20,12 +23,20 @@ class AuthDB
                   )');
 
             $this->statementReadSession = $pdo->prepare('SELECT * FROM session WHERE id=:id');
+            $this->statementReadUser = $pdo->prepare('SELECT * FROM user WHERE id=:id');
+            $this->statementReadUserFromEmail = $pdo->prepare('SELECT * FROM user WHERE email=:email');
+            $this->statementCreateSession = $pdo->prepare('INSERT INTO session VALUES (DEFAULT, :userid)');
+            $this->statementDeleteSession = $pdo->prepare('DELETE FROM session WHERE  id=:id');
       }
 
 
 
-      function login(array $credentials): void
+      function login(string $userId): void
       {
+            $this->statementCreateSession->bindValue(':userid', $userId);
+            $this->statementCreateSession->execute();
+            $sessionId = $this->pdo->lastInsertId();
+            setcookie('session', $sessionId, time() + 60 * 60 * 24 * 14, '', '', false, true);
       }
 
       function register(array $user): void
@@ -48,21 +59,33 @@ class AuthDB
             global $pdo;
             $sessionId = $_COOKIE['session'] ?? '';
             if ($sessionId) {
-                  $statementSession->bindValue(':id', $sessionId);
-                  $statementSession->execute();
-                  $session = $statementSession->fetch();
+                  $this->statementReadSession->bindValue(':id', $sessionId);
+                  $this->statementReadSession->execute();
+                  $session = $this->statementReadSession->fetch();
                   if ($session) {
-                        $statementUser = $pdo->prepare('SELECT * FROM user WHERE id=:id');
-                        $statementUser->bindValue(':id', $session['userid']);
-                        $statementUser->execute();
-                        $user = $statementUser->fetch();
+                        $this->statementReadUser = $pdo->prepare('SELECT * FROM user WHERE id=:id');
+                        $this->statementReadUser->bindValue(':id', $session['userid']);
+                        $this->statementReadUser->execute();
+                        $user = $this->statementReadUser->fetch();
                   }
             }
 
             return $user ?? false;
       }
-      function logout(): void
+      function logout(string $sessionId): void
       {
+            $this->statementDeleteSession->bindValue(':id', $sessionId);
+            $this->statementDeleteSession->execute();
+            setcookie('session', '', time() - 1);
+            return;
+      }
+
+      function getUserFromEmail(string $email): array
+      {
+
+            $this->statementReadUserFromEmail->bindValue(':email', $email);
+            $this->statementReadUserFromEmail->execute();
+            return $this->statementReadUserFromEmail->fetch();
       }
 }
 
